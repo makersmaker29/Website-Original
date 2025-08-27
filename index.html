@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Crossword Poster Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    h1 {
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    textarea, input[type="text"] {
+      font-family: 'Inter', sans-serif;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      line-height: 1.5;
+      width: 100%;
+    }
+
+    label {
+      margin-right: 10px;
+    }
+
+    button {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      padding: 8px 14px;
+      border-radius: 5px;
+      border: none;
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    #canvas {
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      background: white;
+      max-width: 100%;
+    }
+
+    .layout {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      align-items: flex-start;
+      margin-top: 20px;
+    }
+
+    .left, .right {
+      flex: 1;
+      min-width: 320px;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+<h1>Makers Maker Crossword Pricing Generator</h1>
+
+<div class="layout">
+  <div class="left">
+    <textarea id="words" rows="10" placeholder="Enter names here..."></textarea>
+
+    <div class="controls">
+      <button id="gen">Generate</button>
+      <button id="save">Download PNG</button>
+      <button id="calc">Calculate Price</button>
+      <button id="editPricingBtn">Edit Pricing</button>
+    </div>
+
+    <br/>
+    <label><input checked name="style" type="radio" value="white"/> White Combo</label>
+    <label><input name="style" type="radio" value="black"/> Black Combo</label><br/><br/>
+    <label>Customer Name: <input id="customerName" type="text"/></label><br/><br/>
+    <div id="status"></div><br/>
+    <div id="price"></div>
+  </div>
+
+  <div class="right">
+    <canvas id="canvas" width="1200" height="1000"></canvas>
+  </div>
+</div>
+
+<!-- Pricing Modal -->
+<div id="pricingModal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; border:2px solid #333; padding:20px; z-index:1000;">
+  <h3>Pricing Settings</h3>
+  <label>Board Unit Price: <input id="boardUnit" type="number" value="0.0042"/></label><br/>
+  <label>Frame Unit Price: <input id="frameUnit" type="number" value="0.07"/></label><br/>
+  <label>Tile 4cm Price: <input id="tile4cm" type="number" value="3.5"/></label><br/>
+  <label>Tile 6cm Price: <input id="tile6cm" type="number" value="4"/></label><br/>
+  <label>Profit % for 4cm: <input id="profit4cm" type="number" value="35"/></label><br/>
+  <label>Profit % for 6cm: <input id="profit6cm" type="number" value="45"/></label><br/>
+  <label>Small Black Extra: <input id="smallBlackExtra" type="number" value="50"/></label><br/>
+  <label>Big Black Extra: <input id="bigBlackExtra" type="number" value="75"/></label><br/>
+  <label>Labour Cost: <input id="labourCost" type="number" value="70"/></label><br/>
+  <label>Misc Cost: <input id="miscCost" type="number" value="20"/></label><br/><br/><br/>
+  <button id="savePricing">Save</button>
+  <button id="closePricing">Close</button>
+</div>
+
+<script src="script.js" defer></script>
+</body>
+</html>

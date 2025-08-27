@@ -1,0 +1,7 @@
+body { font-family: Arial, sans-serif; background: #f8f8f8; display: flex; flex-direction: column; align-items: center; padding: 40px; }
+textarea { width: 300px; height: 100px; margin-bottom: 10px; }
+input[type="number"], input[type="text"] { width: 100px; margin: 5px; }
+label { margin: 5px; display: inline-block; }
+button { padding: 10px 20px; font-size: 16px; margin: 5px; }
+canvas { border: 2px solid #333; margin-top: 20px; }
+#status, #price { margin-top: 10px; white-space: pre-line; }
